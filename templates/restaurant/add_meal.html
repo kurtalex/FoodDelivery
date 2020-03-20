@@ -1,0 +1,21 @@
+{% extends 'restaurant/base_rastaurant.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <div class="offset-lg-2 col-lg-8">
+        <div class="card">
+            <div class="card-header bg-blue">
+                <h4 class="card-title text-center text-white">
+                    Add Meal
+                </h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <button type="submit" class="btn btn-orange">Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
