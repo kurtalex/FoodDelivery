@@ -1,5 +1,5 @@
 """
-WSGI config for FoodDelivery project.
+WSGI config for food_delivery project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -8,9 +8,14 @@ https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/
 """
 
 import os
-
+from whitenoise import WhiteNoise
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FoodDelivery.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'food_delivery.settings')
 
 application = get_wsgi_application()
+
+# Use whitenoise package to serve static files on Heroku
+
+
+application = WhiteNoise(application)
